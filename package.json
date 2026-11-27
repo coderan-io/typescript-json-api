@@ -1,0 +1,31 @@
+{
+    "name": "@coderan/json-api",
+    "version": "0.0.0",
+    "description": "Type-safe JSON:API document reader for TypeScript",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "type": "module",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "test": "tsc --noEmit && node --test src/*.test.ts",
+        "prepublishOnly": "npm run build && npm test",
+        "lint": "oxlint",
+        "format": "oxfmt",
+        "format:check": "oxfmt --check"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.11",
+        "oxfmt": "^0.80.0",
+        "oxlint": "^1.95.0",
+        "typescript": "^7.0.2"
+    }
+}

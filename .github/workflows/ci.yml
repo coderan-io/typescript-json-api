@@ -1,0 +1,21 @@
+name: CI
+
+on: pull_request
+
+concurrency:
+    group: ci-${{ github.head_ref }}
+    cancel-in-progress: true
+
+jobs:
+    check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 26.13.1
+                  cache: npm
+            - run: npm ci
+            - run: npm run lint
+            - run: npm run format:check
+            - run: npm test # tsc --noEmit (incl. type tests) + node --test

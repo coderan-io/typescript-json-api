@@ -1,6 +1,6 @@
 {
     "name": "@coderan/json-api",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Type-safe JSON:API document reader for TypeScript",
     "license": "MIT",
     "files": [
